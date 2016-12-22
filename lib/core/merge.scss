@@ -1,0 +1,85 @@
+@charset "utf-8";
+@import "variables";
+
+/* 基础变量 */
+// 合并$_base和$base map
+@if global-variable-exists(base) {
+    $base: map-merge($_base, $base) !global;
+} @else {
+    $base: $_base !global;
+}
+
+// 合并$_setting和$setting map
+@if global-variable-exists(setting) {
+    $setting: map-merge($_setting, $setting) !global;
+} @else {
+    $setting: $_setting !global;
+}
+
+// 合并$_media-types和$media-types map
+@if global-variable-exists(media-types) {
+    $media-types: map-merge($_media-types, $media-types) !global;
+} @else {
+    $media-types: $_media-types !global;
+}
+
+// 合并$_ico和$ico map 🈚️
+@if global-variable-exists(ico) {
+    $ico: map-merge($_ico, $ico) !global;
+} @else {
+    $ico: $_ico !global;
+}
+
+// 合并$_z-index和$z-index map 🈚️
+@if global-variable-exists(z-index) {
+    $z-index: map-merge($_z-index, $z-index) !global;
+} @else {
+    $z-index: $_z-index !global;
+}
+
+// 合并$_align和$align map
+@if global-variable-exists(align) {
+    $align: map-merge($_align, $align) !global;
+} @else {
+    $align: $_align !global;
+}
+
+// 合并$_column和$column map 🈚️
+@if global-variable-exists(column) {
+    $column: map-merge($_column, $column) !global;
+} @else {
+    $column: $_column !global;
+}
+
+// 合并$_flex和$flex map
+@if global-variable-exists(flex) {
+    $flex: map-merge($_flex, $flex) !global;
+} @else {
+    $flex: $_flex !global;
+}
+
+// 合并$_root和$root map 🈚️
+@if global-variable-exists(root) {
+    $root: map-merge($_root, $root) !global;
+} @else {
+    $root: $_root !global;
+}
+
+/* 组件变量 */
+@if global-variable-exists(list) {
+    $list: map-merge($_list, $list) !global;
+} @else {
+    $list: $_list !global;
+}
+
+@if global-variable-exists(ribbon) {
+    $ribbon: map-merge($_ribbon, $ribbon) !global;
+} @else {
+    $ribbon: $_ribbon !global;
+}
+
+@if global-variable-exists(badge) {
+    $badge: map-merge($_badge, $badge) !global;
+} @else {
+    $badge: $_badge !global;
+}

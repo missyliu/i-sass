@@ -1,0 +1,210 @@
+@charset "UTF-8";
+/**
+ * 全局base定义
+ * 与其他map不同地方在于，这里所定义的map可以使用在非$_base和任何地方
+ */
+
+// base
+$_base: (
+    // root字号类型：normal | scaling
+    // normal表示root字号使用 `font-size-root`
+    // scaling表示root字号使用 `font-size-root-scaling`
+    responsive-type:          scaling,
+    // html root使用100px，方便rem单位的换算
+    font-size-root:           100px,
+    // 适配：用于做元素随屏幕大小而变化的情况
+    font-size-root-scaling:   31.25vw,
+    // body的默认字体
+    // chrome37-45/opera24-33在body上使用rem时有个bug（其他版本未测），后续版本已被修复:
+    // 只要引用了外部样式，不论里面的内容是什么，body上的rem就会失效
+    // 这时在开发者工具里，关闭又开启一次该条属性，则生效，刷新又挂
+    // 由于body是html的子元素，所以对于body来讲，此时rem与em的效果是相同的
+    font-size:                .14em,
+    // font-family
+    font-family:              #{"Helvetica Neue", Helvetica, STHeiTi, sans-serif},
+    // line-height
+    line-height:              1.5,
+    // 默认文档背景色
+    doc-background-color:     #eee,
+    // 默认边框色
+    border-color:             #ccc,
+    // 默认次级边框色
+    sub-border-color:         #ddd,
+    // 默认背景颜色
+    background-color:         #fafafa,
+    // 默认文本颜色
+    color:                    #212121,
+    // 默认次级文本颜色
+    sub-color:                #666,
+    // 默认边框色
+    disabled-border-color:    #ccc,
+    // 默认文档颜色
+    disabled-background-color:#e0e0e0,
+    // 默认禁用文本颜色
+    disabled-color:           #bbb,
+    // 高亮色
+    light-color:              #FE0053,
+    // 价格颜色
+    price-color:              #f24,
+    // 默认链接色
+    link-color:               #00afc7,
+    // 链接经过色
+    link-hover-color:         #f24
+);
+/**
+ * 全局Variables
+ * 基础变量map，如果不想定义某属性，将其value设置为null
+ * 仅使用2种长度单位：px用于边框，rem用于除边框之外的所有地方
+*/
+
+// 基本设置
+$_setting: (
+    // {String} 版本号
+    version:                "3.0.0",
+    // {Boolean} 是否开启厂商前缀
+    is-vendor-prefix:       true,
+    // {String} 厂商前缀
+    vendor-prefix:          -webkit-,
+    // {String} 背景图片服务器
+    background-image-domain:"//v.hiphotos.baidu.com/baidu/",
+    // {Boolean} 是否允许横竖屏时文本字号自动调整
+    is-text-size-adjust:    true,
+    // {Boolean} 是否显示页面滚动条
+    is-scrollbar:           false
+);
+
+// responsive media types
+$_media-types: (
+    // {String} 横屏
+    landscape: "(orientation: landscape)",
+    // {String} 竖屏
+    portrait:  "(orientation: portrait)",
+    // 视网膜屏定义，这里不做非常细节的界定，比如完全一致的整数倍
+    // retina1x：< 1.5dppx；
+    // retina2x：1.5dppx ~ 2.49dppx
+    // retina3x：>= 2.5dppx
+    // {String} 非视网膜屏
+    retina1x:  "(max--moz-device-pixel-ratio: 1.49),
+                (-webkit-max-device-pixel-ratio: 1.49),
+                (max-device-pixel-ratio: 1.49),
+                (max-resolution: 143dpi),
+                (max-resolution: 1.49dppx)",
+    // {String} 视网膜屏2x
+    retina2x:  "(min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49),
+                (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49),
+                (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49),
+                (min-resolution: 144dpi) and (max-resolution: 239dpi),
+                (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx)",
+    // {String} 视网膜屏3x
+    retina3x:  "(min--moz-device-pixel-ratio: 2.5),
+                (-webkit-min-device-pixel-ratio: 2.5),
+                (min-device-pixel-ratio: 2.5),
+                (min-resolution: 240dpi),
+                (min-resolution: 2.5dppx)",
+    // 待添加stop-points
+    // 用于常规手机横竖屏
+    xs:        "(max-width: 767px)",
+    // 用于常规pad横竖屏
+    s:         "(min-width: 768px) and (max-width: 1024px)",
+    // 用于常规笔记本
+    m:         "(min-width: 1025px) and (max-width: 1280px)",
+    // 用于常规台式机
+    l:         "(min-width: 1281px) and (max-width: 1440px)",
+    // 用于超大台式机
+    xl:        "(min-width: 1441px)"
+);
+
+// ico font
+$_ico: (
+    // {Boolean} 是否使用图标字体
+    is-use:      false,
+    // {String} 图标字体文件名
+    font-name:   ifont,
+    // {Url} 图标字体路径
+    font-path:   "//v.hiphotos.baidu.com/baidu/"
+);
+
+// z-index
+$_z-index: (
+    // {Number} 模态窗层级范围1000-1499
+    modal:       1000,
+    // {Number} 提示语层级范围1500-2499
+    toast:       1500
+);
+
+// Layout align
+$_align: (
+    // {String} 定义弹性水平对齐方式
+    justify-content: center,
+    // {String} 定义弹性垂直对齐方式
+    align-items:     center
+);
+
+// Layout column(1)
+$_column: (
+    // {Length} 容器高度，取值：[auto|cover]
+    size:     auto
+);
+
+// Layout flex
+$_flex: (
+    // {String} 定义是水平布局还是垂直布局: row | column
+    direction: column
+);
+
+// Layout root
+$_root: (
+    // {Color} 背景色
+    background-color: null
+);
+
+/* 组件 */
+// biu-list(10)
+$_list: (
+  // {Length} 列表外边距
+  margin:                  null,
+  // {Length} 列表边框厚度
+  border-width:            1px 0,
+  // {Color} 列表边框色
+  border-color:            map-get($base, border-color),
+  // {Length} 列表圆角
+  radius:                  null,
+  // {Length} 列表项内补白，列表项有最小高度.44rem
+  item-padding:            .08rem .1rem,
+  // {Color} 列表项边框色
+  item-border-color:       map-get($base, sub-border-color),
+  // {Length} 列表项字号
+  item-font-size:          map-get($base, font-size-baseline),
+  // {Length} 列表项下边线距离左侧的间隙
+  item-border-space:       .1rem,
+  // {Color} 点击反馈背景色
+  active-background-color: #f8f8f8,
+  // {Length} 列表项距离右侧的间隙
+  item-space:              .1rem
+);
+
+// biu-ribbon(2)
+$_ribbon: (
+  // {String} 色带文字
+  text:             "订今日",
+  // {Color} 色带背景色
+  background-color: #f24
+);
+
+// biu-badge(7)
+$_badge: (
+  // {Length} 内补白
+  padding:          0 .04rem,
+  // {Length} 边框厚度
+  border-width:     2px,
+  // {Color} 边框色
+  border-color:     #f00,
+  // {Length} 圆角
+  radius:           .1rem,
+  // {Color} 背景色
+  background-color: #f00,
+  // {Color} 文本色
+  color:            #fff,
+  // {Length} 字号
+  font-size:        .12rem
+);

@@ -1,0 +1,12 @@
+@charset "utf-8";
+/*
+ * ⚠️注意: 顺序引入！
+ */
+// 不同终端自定义 config 文件
+/*<release
+ @import "./config";
+/release>*/
+@import "./config";
+@import "../lib/core/merge";
+// 若有站点自身 reset 需要，则在引入 core/reset 后直接覆盖
+@import "../lib/core/reset";
