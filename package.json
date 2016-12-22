@@ -1,0 +1,25 @@
+{
+  "name": "i-sass",
+  "version": "0.0.1",
+  "description": "基于Sass的移动端UI样式库",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/missyliu/i-sass.git"
+  },
+  "keywords": [
+    "Sass",
+    "sass",
+    "scss",
+    "mobile",
+    "UI",
+    "多终端",
+    "nuomi",
+    "糯米"
+  ],
+  "author": "missyliu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/missyliu/i-sass/issues"
+  },
+  "homepage": "https://github.com/missyliu/i-sass#readme"
+}
